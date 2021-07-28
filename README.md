@@ -8,18 +8,18 @@ This function takes a string and returns a dictionary with the number of occuren
 
 #### Hypothesis class
 In general every machine learning problem starts with assuming assuming a hypothesis class . The most used function in general will be a sigmoid function (we can make this to predict between [-1,1] by taking 2*sigmoid - 1 )<br>
-It turns out to be in this example we can simply use **sign(Weights*Φ(x))** to predict whether its +ve or -ve <br>
+It turns out to be in this example we can simply use <b> sign(Weights*Φ(x)) </b> to predict whether its +ve or -ve <br>
 Here Φ(x) is a dictionary with keys as words and values as number of counts
 <br>
 #### Learning Weights (optimisation)
-We have to describe our loss function before we are doing optimisation . It turns out be that its so straight forward one can think we can use Hinge loss i.e **Losshinge(x,y,w) = max{1 −(w·φ(x))*y , 0}** note here our function turns out be convex . So we can use either **gradient descent  or stochastic gradient descent **  Lets use SGD here .
+We have to describe our loss function before we are doing optimisation . It turns out be that its so straight forward one can think we can use Hinge loss i.e <b>Losshinge(x,y,w) = max{1 −(w·φ(x))*y , 0}</b> note here our function turns out be convex . So we can use either <b>gradient descent  or stochastic gradient descent </b>  Lets use SGD here .
 
 #### Stochastic gradient descent
-Lets first calculate gradient **∇Losshinge(x,y,w) = {−φ(x)y if 1 > {(w·φ(x))y} else 0}** So our SGD update looks like<br><br>
-        **for i in range(Epochs):** <br>
-             **for x,y in trainset:**<br>
-                 w:= w - α * ∇Losshinge(x,y,w) <br><br>
+Lets first calculate gradient <b>∇Losshinge(x,y,w) = {−φ(x)y if 1 > {(w·φ(x))y} else 0}</b> So our SGD update looks like<br><br>
+        <b>for i in range(Epochs):</b> <br>
+             <b>for x,y in trainset:</b><br>
+                 <b>w:= w - α * ∇Losshinge(x,y,w)</b> <br><br>
                  
-If we try to increase Epochs to large our Training error goes to zero but then our test error oscillates between 25-27 % 
+If we try to increase Epochs to large our Training error goes to zero but then our test error oscillates between 25-27 % .
 
-Our learned weights are in "weights" file and misclassifed review are there in "error-analysis" file
+Our learned weights are in "weights" file and misclassifed review are there in "error-analysis" file .
