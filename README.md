@@ -22,4 +22,4 @@ Lets first calculate gradient **∇Losshinge(x,y,w) = {−φ(x)y if 1 > {(w·φ(
                  
 If we try to increase Epochs to large our Training error goes to zero but then our test error oscillates between 25-27 % 
 
-
+Our learned weights are in "weights" file and misclassifed review are there in "error-analysis" file
