@@ -101,24 +101,3 @@ def generateDataset(numExamples: int, weights: WeightVector) -> List[Example]:
         return (phi, -1)
     return [generateExample() for _ in range(numExamples)]
 ############################################################
-# character features
-
-
-def extractCharacterFeatures(n: int) -> Callable[[str], FeatureVector]:
-    '''
-    Return a function that takes a string |x| and returns a sparse feature
-    vector consisting of all n-grams of |x| without spaces mapped to their n-gram counts.
-    EXAMPLE: (n = 3) "I like tacos" --> {'Ili': 1, 'lik': 1, 'ike': 1, ...
-    You may assume that n >= 1.
-    '''
-    def extract(x: str) -> Dict[str, int]:
-        phi = {}
-        without_space_x = ''.join(x.split(' '))
-        for i in range(len(without_space_x)-n+1):
-            if without_space_x[i:i+n] not in phi:
-                phi[without_space_x[i:i+n]]=1
-            else:
-                phi[without_space_x[i:i+n]]+=1
-        return phi
-    return extract
-############################################################
